@@ -1,0 +1,34 @@
+apiVersion: k8smanagers.greyridge.com/v1
+kind: WorkloadManager
+metadata:
+  labels:
+    app.kubernetes.io/name: workloadmanager
+    app.kubernetes.io/managed-by: kustomize
+  name: workloadmanager-sample
+spec:
+  subscriptionId: "3e54eb54-946e-xxxx-yyyy-d7b190cd45cf"
+  resourceGroup: "node-upgrader"
+  clusterName: "lm-cluster"
+  retryOnError: false
+  testMode: false
+  procedures:
+    - description: "move-az1-svcs"
+      type: "deployment"
+      namespace: "myns"
+      workloads:
+        - "serviceA"
+        - "serviceB"
+      affinity:
+        key: "agentpool"
+        initial: "blue1"
+        target: "green1"
+    - description: "move-az2-svcs"
+      type: "deployment"
+      namespace: "myns"
+      workloads:
+        - "serviceX"
+        - "serviceY"
+      affinity:
+        key: "agentpool"
+        initial: "blue2"
+        target: "green2"
