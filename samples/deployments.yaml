@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: serviceA
-  namespace: my-ns
+  name: service-a
+  namespace: myns
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: serviceA
+      app: service-a
   template:
     metadata:
       labels:
-        app: serviceA
+        app: service-a
     spec:
       affinity:
         nodeAffinity:
@@ -23,7 +23,7 @@ spec:
                     values:
                       - green1
       containers:
-        - name: serviceA
+        - name: service-a
           image: nginx:latest
           ports:
             - containerPort: 80
@@ -31,17 +31,17 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: serviceB
-  namespace: my-ns
+  name: service-b
+  namespace: myns
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: serviceB
+      app: service-b
   template:
     metadata:
       labels:
-        app: serviceB
+        app: service-b
     spec:
       affinity:
         nodeAffinity:
@@ -53,7 +53,7 @@ spec:
                     values:
                       - green1
       containers:
-        - name: serviceB
+        - name: service-b
           image: nginx:latest
           ports:
             - containerPort: 80
@@ -61,17 +61,17 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: serviceX
-  namespace: my-ns
+  name: service-x
+  namespace: myns
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: serviceX
+      app: service-x
   template:
     metadata:
       labels:
-        app: serviceX
+        app: service-x
     spec:
       affinity:
         nodeAffinity:
@@ -83,7 +83,7 @@ spec:
                     values:
                       - green2
       containers:
-        - name: serviceX
+        - name: service-x
           image: nginx:latest
           ports:
             - containerPort: 80
@@ -91,17 +91,17 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: serviceY
-  namespace: my-ns
+  name: service-y
+  namespace: myns
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: serviceY
+      app: service-y
   template:
     metadata:
       labels:
-        app: serviceY
+        app: service-y
     spec:
       affinity:
         nodeAffinity:
@@ -113,7 +113,7 @@ spec:
                     values:
                       - green2
       containers:
-        - name: serviceY
+        - name: service-y
           image: nginx:latest
           ports:
             - containerPort: 80
