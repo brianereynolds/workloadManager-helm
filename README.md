@@ -114,7 +114,7 @@ I would love to have some contributors to the project. Contact me on github
 ### Uninstall
 Uninstall the helm chart
 ```
-helm uninstall -n operations workloadlmanager
+helm uninstall -n operations workloadmanager
 ```
 
 ## License
