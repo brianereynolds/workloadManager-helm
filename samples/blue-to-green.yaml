@@ -16,8 +16,8 @@ spec:
       type: "deployment"
       namespace: "myns"
       workloads:
-        - "serviceA"
-        - "serviceB"
+        - "service-a"
+        - "service-b"
       affinity:
         key: "agentpool"
         initial: "blue1"
@@ -27,8 +27,8 @@ spec:
       type: "deployment"
       namespace: "myns"
       workloads:
-        - "serviceX"
-        - "serviceY"
+        - "service-x"
+        - "service-y"
       affinity:
         key: "agentpool"
         initial: "blue2"

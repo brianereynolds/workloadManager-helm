@@ -58,7 +58,7 @@ spec:
   # When this flag is true, no changes will be executed, only logged
   testMode: false
   
-  # A list of procedures (a list of workloads to move)
+  # A list of procedures (a list of workloads to move). Will be executed in order
   procedures:
       # A human-friendly description 
     - description: "move-services"
@@ -66,7 +66,7 @@ spec:
       type: "deployment"
       # The namespace that contains the resource
       namespace: "my-app-ns"
-      # A list of the resources to change.∑
+      # A list of the resources to change. Will be executed in order. Execution will wait until the workload is ready or timeout occurs.
       workloads:
         - "app1"
         - "app2"
