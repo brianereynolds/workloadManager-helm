@@ -22,6 +22,7 @@ spec:
         key: "agentpool"
         initial: "green1"
         target: "blue1"
+      timeout: 300
     - description: "move-az2-svcs"
       type: "deployment"
       namespace: "myns"
@@ -32,3 +33,4 @@ spec:
         key: "agentpool"
         initial: "green2"
         target: "blue2"
+      timeout: 300
