@@ -113,7 +113,44 @@ affinity:
               values:
                 - servicesblue
 ```
+
 ### Security
+The controller users DefaultAzureCredential. The DefaultAzureCredential is a feature of the Azure Identity library that simplifies
+authentication for applications running on Azure. It automatically selects the best available credential based on the environment
+it's running in, making it easier to manage authentication across different stages of development and deployment.
+
+The controller has been tested with
+* ManagedIdentityCredential
+* EnvironmentCredential (Enterprise app/Service Principal)
+
+#### Service Principal
+The SPN details can be set when installing the helm chart. Create a values.yaml and include with -f on helm command.
+
+Example:
+
+```kubectl create secret generic azure-client-secret --from-literal=AZURE_CLIENT_SECRET=myclientsecret -n operations ```
+
+```yaml
+controllerManager:
+  deployment:
+    env:
+      - name: AZURE_CLIENT_ID
+        value: aaa-bbb-ccc
+      - name: AZURE_TENANT_ID
+        value: xxx-yyy-zzz
+      - name: AZURE_CLIENT_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: azure-client-secret
+            key: AZURE_CLIENT_SECRET
+```
+
+Assign the role _Azure Kubernetes Service Contributor Role_ to the MI which matches the details above.
+
+#### Managed Identity
+During AKS provisioning, a "managed cluster" resource group will be created, named `MC_[rgroup]_[clustername]_[region]`.
+This resource group will contain a managed identity, usually named `[clustername]_agentpool`.
+Add an Azure role assignment to this MI. The role to add is _Azure Kubernetes Service Contributor Role_.
 
 
 ### Contributions
