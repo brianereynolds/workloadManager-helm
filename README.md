@@ -22,6 +22,16 @@ kubectl create ns operations
 helm repo add k8smanagers https://k8smanagers.blob.core.windows.net/helm/
 helm install workloadmanager k8smanagers/workloadmanager -n operations
 ```
+The helm chart can be also use private image repository/tag and include image pull secrets if required. This is done by creating a values.yaml and including with -f on helm command.
+
+```yaml
+controllerManager:
+  manager:
+    repository: my-image-repo/node-pool-manager
+    tag: specific-tag
+imagePullSecrets:
+  - name: my-image-pull-secret
+```
 
 #### Verification
 ```
