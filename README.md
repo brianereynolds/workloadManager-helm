@@ -27,7 +27,7 @@ The helm chart can be also use private image repository/tag and include image pu
 ```yaml
 controllerManager:
   manager:
-    repository: my-image-repo/node-pool-manager
+    repository: my-image-repo/workload-manager
     tag: specific-tag
 imagePullSecrets:
   - name: my-image-pull-secret
@@ -180,3 +180,21 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
+## Appendix
+### Role Permissions
+The following Action permissions are required
+```
+"Microsoft.ContainerService/managedClusters/agentPools/read",
+"Microsoft.ContainerService/managedClusters/agentPools/write",
+"Microsoft.ContainerService/managedClusters/read",
+"Microsoft.ContainerService/managedClusters/diagnosticsState/read",
+"Microsoft.ContainerService/managedClusters/agentPools/upgradeProfiles/read",
+"Microsoft.ContainerService/managedClusters/upgradeProfiles/read",
+"Microsoft.OperationalInsights/workspaces/sharedkeys/read",
+"Microsoft.OperationalInsights/workspaces/read",
+"Microsoft.OperationalInsights/workspaces/write",
+"Microsoft.OperationsManagement/solutions/write",
+"Microsoft.OperationsManagement/solutions/read",
+"Microsoft.ContainerService/managedClusters/agentPools/delete",
+"Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
+```
