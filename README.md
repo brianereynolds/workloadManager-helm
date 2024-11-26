@@ -172,6 +172,11 @@ I would love to have some contributors to the project. Contact me on github
 
 ### Uninstall
 Uninstall the helm chart
+To remove the instance
+```
+helm delete WorkloadManager workloadmanager-sample
+```
+
 ```
 helm uninstall -n operations workloadmanager
 ```
