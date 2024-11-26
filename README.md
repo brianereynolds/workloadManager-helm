@@ -4,9 +4,9 @@ Workload Manager is used move AKS workloads between different node pools using a
 ## Description
 Some applications cannot take full advantage of the Kubernetes high-availability concepts. This CRD has been designed to manage these workloads. 
 
-Based on the YAML you provide, the affinity will be adjusted to change the provided key and value. Kubernetes will then re-schedule the workload based on the updated configuration.
+Based on the YAML you provide, the affinity will be adjusted to inject the provided key and value. Kubernetes will then re-schedule the workload based on the updated configuration.
 
-It can be thought of as a blue/green deployment pattern, but all within a single AKS cluster (for example 2 node pools, one green, one blue)
+It can be considered similar to a blue/green pattern, but all within a single AKS cluster (for example 2 node pools, one green, one blue)
 
 ## Getting Started
 
