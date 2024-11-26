@@ -210,3 +210,7 @@ The following Action permissions are required
 "Microsoft.ContainerService/managedClusters/agentPools/delete",
 "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
 ```
+
+### Debugging
+Set the DEBUG_LOGGING to "1" in the env section.
+
