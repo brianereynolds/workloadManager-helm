@@ -198,6 +198,32 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 ## Appendix
+### Role Permissions
+Typically, _AKS Contributor_ is required. However, in the case a custom role is used, the following Action permissions are required
+```
+"Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action",
+"Microsoft.ContainerService/managedClusters/agentPools/read",
+"Microsoft.ContainerService/managedClusters/agentPools/write",
+"Microsoft.ContainerService/managedClusters/read",
+"Microsoft.ContainerService/managedClusters/diagnosticsState/read",
+"Microsoft.ContainerService/managedClusters/agentPools/upgradeProfiles/read",
+"Microsoft.ContainerService/managedClusters/upgradeProfiles/read",
+"Microsoft.OperationalInsights/workspaces/sharedkeys/read",
+"Microsoft.OperationalInsights/workspaces/read",
+"Microsoft.OperationalInsights/workspaces/write",
+"Microsoft.OperationsManagement/solutions/write",
+"Microsoft.OperationsManagement/solutions/read",
+"Microsoft.ContainerService/managedClusters/agentPools/delete",
+"Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
+```
+
 ### Debugging
-Set the DEBUG_LOGGING to "1" in the env section.
+Set the DEBUG_LOGGING:
+```
+controllerManager:
+  deployment:
+    env:
+      - name: DEBUG_LOGGING
+        value: "1"
+```
 
