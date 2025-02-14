@@ -93,11 +93,11 @@ spec:
         - "app1"
         - "app2"
         - "app3"
-      # The node affinity to change.
+      # The node affinity OR node selector to change.
       #    key: The key/label
       #    initial: The existing value of this key (used for verification/rollback)
       #    target: The target value for this key
-      affinity:
+      affinity:  # OR selector
         key: "agentpool"
         initial: "servicesblue"
         target: "servicesglas"
